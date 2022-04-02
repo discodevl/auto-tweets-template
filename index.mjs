@@ -1,18 +1,35 @@
 import { rwClient } from "./TwitterClient.mjs";
-import { CronJob } from "cron";
+import cron from "node-cron";
 import { templates } from "./data/getTemplate.mjs";
+import { subjects } from "./data/getSubject.mjs";
+
+async function generateTweet() {
+  const subjectIndex = Math.floor(Math.random() * subjects.length);
+  const subject = subjects[subjectIndex];
+  const templateIndex = Math.floor(Math.random() * templates.length);
+  const template = templates[templateIndex];
+  
+  let result = template.replace("@", subject);
+  return result;
+
+}
 
 async function tweet() {
   try {
-    await rwClient.v1.tweet("agente so queremos brincar ha ha ha");
+    const tweet = await generateTweet();
+    await rwClient.v1.tweet(tweet);
   } catch (error) {
     console.log(error.message);
   }
 }
+console.log({ templates });
+console.log({ subjects });
 
-// const cjob = new CronJob("*/25 * * * *", () => {
-//     console.log(`${new Date().toString()} - tweet`);
-//     tweet();
-// });
-console.log({templates});
-// cjob.start();
+function main() {
+  cron.schedule("*/25 * * * *", () => {
+    console.log(`${new Date().toString()} - tweet`);
+    tweet();
+  });
+}
+
+main();
