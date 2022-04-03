@@ -40,6 +40,8 @@ async function tweet() {
 function main() {
   cron.schedule("0 */1 * * *", () => {
     tweet();
+    console.log({templates})
+    console.log({subjects})
   });
 }
 

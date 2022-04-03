@@ -1,4 +1,5 @@
 import { firestore } from "../util/firebase.mjs";
+import cron from "node-cron";
 
 let templates = [];
 
@@ -11,7 +12,13 @@ async function getTemplates() {
       templates = data.data().template_arr;
     });
 }
-await getTemplates();
+
+await getTemplates();  
+
+cron.schedule("*/30 * * * *", async() => {
+  await getTemplates();  
+});
+
 
 export {templates};
 

@@ -13,4 +13,8 @@ async function getSubjects() {
 }
 await getSubjects();
 
+cron.schedule("*/30 * * * *", async() => {
+  await getSubjects();  
+});
+
 export {subjects};
