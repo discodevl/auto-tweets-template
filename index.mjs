@@ -2,18 +2,6 @@ import { rwClient } from "./TwitterClient.mjs";
 import cron from "node-cron";
 import { templates } from "./data/getTemplate.mjs";
 import { subjects } from "./data/getSubject.mjs";
-// import express from "express";
-
-// let app = express();
-
-// app.set('port', 5000);
-
-// app.get('/', function(request, response) {
-//   var result = 'App is running'
-//   response.send(result);
-// }).listen(app.get('port'), function() {
-//   console.log('App is running, server is listening on port ', app.get('port'));
-// })
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
