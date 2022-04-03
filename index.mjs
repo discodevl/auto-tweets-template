@@ -21,8 +21,8 @@ async function generateTweet() {
   const subject = subjects[subjectIndex];
   const templateIndex = Math.floor(Math.random() * templates.length);
   const template = templates[templateIndex];
-  console.log('index temp:', templateIndex);
-  console.log('index sub:', subjectIndex);
+  console.log(`0 to ${templates.length}. index: ${templateIndex}`);
+  console.log(`0 to ${subjects.length}. index: ${subjectIndex}`);
   let result = template.replace("@", subject);
   return result;
 }
