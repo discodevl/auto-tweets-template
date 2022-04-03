@@ -37,7 +37,7 @@ async function tweet() {
 }
 
 function main() {
-  cron.schedule("* */2 * * *", () => {
+  cron.schedule("0 */2 * * *", () => {
     console.log(`${new Date().toString()} - tweet`);
     tweet();
   });
