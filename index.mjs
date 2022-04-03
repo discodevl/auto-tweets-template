@@ -14,14 +14,15 @@ function shuffleArray(array) {
 }
 
 async function generateTweet() {
-  const shuffledSubjects = shuffleArray(subjects);
-  const shuffledTemplates = shuffleArray(templates);
+  // const shuffledSubjects = shuffleArray(subjects);
+  // const shuffledTemplates = shuffleArray(templates);
 
   const subjectIndex = Math.floor(Math.random() * subjects.length);
-  const subject = shuffledSubjects[subjectIndex];
+  const subject = subjects[subjectIndex];
   const templateIndex = Math.floor(Math.random() * templates.length);
-  const template = shuffledTemplates[templateIndex];
-
+  const template = templates[templateIndex];
+  console.log({templates}, 'index:', templateIndex);
+  console.log({subjects}, 'index:', subjectIndex);
   let result = template.replace("@", subject);
   return result;
 }
@@ -37,7 +38,7 @@ async function tweet() {
 }
 
 function main() {
-  cron.schedule("0 */1 * * *", () => {
+  cron.schedule("0 */2 * * *", () => {
     tweet();
   });
 }
