@@ -5,12 +5,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = firebase.initializeApp({
-  apiKey: 'AIzaSyCeLoYwrAYmJxKD5O45YQA6m2_MekcOA28',
-  authDomain: 'tt-bot-v2.firebaseapp.com',
-  projectId: 'tt-bot-v2',
-  storageBucket: 'tt-bot-v2.appspot.com',
-  messagingSenderId: '1013905684262',
-  appId: '1:1013905684262:web:a59f62d83f64c2b7b333e7'
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID
 });
 
 export const firestore = firebase.firestore();
