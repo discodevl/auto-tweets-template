@@ -38,7 +38,7 @@ async function tweet() {
 }
 
 function main() {
-  cron.schedule("0 */2 * * *", () => {
+  cron.schedule("0 */1 * * *", () => {
     tweet();
   });
 }
