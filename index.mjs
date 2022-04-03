@@ -32,12 +32,12 @@ async function tweet() {
     console.log({ tweet });
     await rwClient.v1.tweet(tweet);
   } catch (error) {
-    console.log(error.message);
+    console.log(error.code);
   }
 }
 
 function main() {
-  cron.schedule("*/25 * * * *", () => {
+  cron.schedule("*/1 * * * *", () => {
     console.log(`${new Date().toString()} - tweet`);
     tweet();
   });
