@@ -19,6 +19,5 @@ cron.schedule("*/30 * * * *", async() => {
   await getTemplates();  
 });
 
-
 export {templates};
 

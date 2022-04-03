@@ -1,4 +1,5 @@
 import { firestore } from "../util/firebase.mjs";
+import cron from "node-cron";
 
 let subjects = [];
 
@@ -11,6 +12,7 @@ async function getSubjects() {
       subjects = data.data().subjects_arr;
     });
 }
+
 await getSubjects();
 
 cron.schedule("*/30 * * * *", async() => {
