@@ -3,15 +3,15 @@ import cron from "node-cron";
 import { templates } from "./data/getTemplate.mjs";
 import { subjects } from "./data/getSubject.mjs";
 
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    let temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-  return array;
-}
+// function shuffleArray(array) {
+//   for (let i = array.length - 1; i > 0; i--) {
+//     let j = Math.floor(Math.random() * (i + 1));
+//     let temp = array[i];
+//     array[i] = array[j];
+//     array[j] = temp;
+//   }
+//   return array;
+// }
 
 async function generateTweet() {
   // const shuffledSubjects = shuffleArray(subjects);
@@ -21,8 +21,8 @@ async function generateTweet() {
   const subject = subjects[subjectIndex];
   const templateIndex = Math.floor(Math.random() * templates.length);
   const template = templates[templateIndex];
-  console.log(`0 to ${templates.length}. index: ${templateIndex}`);
-  console.log(`0 to ${subjects.length}. index: ${subjectIndex}`);
+  console.log(`random template index: 0 to ${templates.length}. index: ${templateIndex}`);
+  console.log(`random subject index: 0 to ${subjects.length}. index: ${subjectIndex}`);
   let result = template.replace("@", subject);
   return result;
 }
@@ -40,8 +40,6 @@ async function tweet() {
 function main() {
   cron.schedule("0 */1 * * *", () => {
     tweet();
-    console.log({templates})
-    console.log({subjects})
   });
 }
 
