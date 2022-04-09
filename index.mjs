@@ -4,13 +4,10 @@ import { templates } from "./data/getTemplate.mjs";
 import { subjects } from "./data/getSubject.mjs";
 
 async function generateTweet() {
-
   const subjectIndex = Math.floor(Math.random() * subjects.length);
   const subject = subjects[subjectIndex];
-
   let subjectIndex2 = Math.floor(Math.random() * subjects.length);
   const subject2 = subjects[subjectIndex2];
-
   while(subjectIndex === subjectIndex2) {
     subjectIndex2 = Math.floor(Math.random() * subjects.length);
   }
