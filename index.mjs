@@ -5,6 +5,7 @@ import { subjects } from "./data/getSubject.mjs";
 import { teams } from "./data/getTeams.mjs"
 
 async function generateTweet() {
+  console.log("running...")
   const subjectIndex = Math.floor(Math.random() * subjects.length);
   const subject = subjects[subjectIndex];
   let subjectIndex2 = Math.floor(Math.random() * subjects.length);
