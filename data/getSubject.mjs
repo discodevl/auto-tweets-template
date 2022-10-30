@@ -2,7 +2,7 @@ import { firestore } from "../util/firebase.mjs";
 import cron from "node-cron";
 
 let subjects = [];
-
+//
 async function getSubjects() {
   await firestore
     .collection("Bot")
